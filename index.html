@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donation</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            color: #333;
+        }
+        form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #555;
+        }
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+  
+    <form id="donationForm">
+      <br></br>
+          <br></br>
+             <br></br>
+                 <br></br>
+                     <br></br>
+      <center><font color=red size=4><strong>Pawansut Animals Foundation ❣️</strong></center>
+       <br></bR>
+       <center ><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYKTp95sughMJ2dgfZG44SMjwiUZnTWISaX97SoBtueGSBKeJM1kfWWLW1&s=10" width="70%"  ></center>    
+       <h1>Donate to Our NGO</h1>
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" required>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" required>
+        
+        <label for="amount">Donation Amount:</label>
+        <input type="number" id="amount" name="amount" required>
+        
+        <label for="paymentMethod">Payment Method:</label>
+        <select id="paymentMethod" name="paymentMethod">
+            <option value="upi">UPI</option>
+            <option value="bank">Bank Transfer</option>
+        </select>
+        
+        <button type="submit">Donate</button>
+    </form>
+
+    <script>
+        document.getElementById('donationForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var phone = document.getElementById('phone').value;
+            var amount = document.getElementById('amount').value;
+            var paymentMethod = document.getElementById('paymentMethod').value;
+
+            if (paymentMethod === 'upi') {
+                // Redirect to UPI payment
+                var upiUrl = `upi://pay?pa=79052 70644@axl&pn=Pawansut Animals Foundation &am=${amount}`;
+                window.location.href = upiUrl;
+            } else if (paymentMethod === 'bank') {
+                // Show bank details
+                alert("Please transfer the amount to the following bank account:\n" +
+                      "Account Number: YOUR_ACCOUNT_NUMBER\n" +
+                      "IFSC Code: YOUR_IFSC_CODE\n" +
+                      "Bank Name: YOUR_BANK_NAME");
+            }
+        });
+    </script>
+</body>
+</html>
